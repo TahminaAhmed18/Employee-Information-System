@@ -1,0 +1,103 @@
+<?php include('inc/header.php'); ?>
+      <!--start-image-slider---->
+		<div class="image-slider">
+		<!-- Slideshow 1 -->
+		  <ul class="rslides" id="slider1">
+		    <li><img src="images/banner1.jpg" alt=""></li>
+			<li><img src="images/banner2.jpg" alt=""></li>
+			<li><img src="images/banner3.jpg" alt=""></li>
+		    <li><img src="images/banner4.jpg" alt=""></li>
+		  </ul>
+	    <!-- Slideshow 2 -->
+	   </div>
+	<!--End-image-slider---->
+	<div class="wrap">
+	  <div class="main">
+		<div class="section group">
+				<div class="col_1_of_4 span_1_of_4">
+					<img src="images/pic.jpg" alt=""/>
+						<div class="banner-box3">
+							<span class="text20">Teacher Info</span>
+							<a href="dept.php" class="link2"></a>
+						</div>
+						<p class="desc">This is Teacher Info section.</p>
+						<div class="more">
+						  <a href="#" class="button">Read More</a>
+						</div>
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<img src="images/pic1.jpg" alt=""/>
+						<div class="banner-box3">
+							<span class="text20">staff info</span>
+							<a href="staff.php" class="link2"></a>
+						</div>
+						<p class="desc">This is comunity section</p>
+						<div class="more">
+						  <a href="#" class="button">Read More</a>
+						</div>
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<img src="images/pic2.jpg" alt=""/>
+						<div class="banner-box3">
+							<span class="text20">Teacher Login</span>
+							<a href="admin/teacher-login.php" class="link2"></a>
+						</div>
+						<p class="desc">This is privet section</p>
+						<div class="more">
+						  <a href="#" class="button">Read More</a>
+						</div>
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<img src="images/pic3.jpg" alt=""/>
+						<div class="banner-box3">
+							<span class="text20">Basic Program</span>
+							<a href="#" class="link2"></a>
+						</div>
+						<p class="desc">This is basic programe section</p>
+						<div class="more">
+						  <a href="#" class="button">Read More</a>
+						</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="bottom-grids">
+				  <div class="bottom-grid1">
+							<h3>POPULAR INFO</h3>
+							
+							<ul>
+								<li><a href="#"><img src="images/marker1.png">This is populer section</a></li>
+								<li><a href="#"><img src="images/marker1.png">This is populer section</a></li>
+								<li><a href="#"><img src="images/marker1.png">This is populer section</a></li>
+								<li><a href="#"><img src="images/marker1.png">This is populer section</a></li>
+								<li><a href="#"><img src="images/marker1.png">This is populer section</a></li>
+								<li><a href="#"><img src="images/marker1.png"> This is populer section</a></li>
+								<li><a href="#"><img src="images/marker1.png"> This is populer section</a></li>
+								<li><a href="#"><img src="images/marker1.png">This is populer section</a></li>
+								<li><a href="#"><img src="images/marker1.png">This is populer section</a></li>
+								<div class="clear"> </div>
+							 </ul><br>
+									<a href="#" class="button">Read More</a>
+					</div>
+								<div class="bottom-grid2 bottom-mid">
+									<h3> </h3>
+									<span>welcome to varendra university</span>
+									<p>The mission of VU is to emerge as one of the leading and premier centre of higher studies in Arts, Social Science, Science, Engineering and technology. The University is providing education of high excellence to our young learners in a congenial and friendly atmosphere, and attracting brilliant students, distinguished scholars, researchers, scientists from home and abroad. Since its commencement on 14 March 2012, VU endeavors to accelerate students’ technological, intellectual, social and personal potentials providing them dynamic guidance and latest information about the new technologies of the world so that they can keep pace with the time and contribute to the advancement of the society.</p><br>
+										<a href="#" class="button">Read More</a>
+								    </div>
+								</div>
+							    <div class="bottom-grid3 bottom-last">
+									<h3>Latest INFO</h3>
+									
+									<p>latest info section.</p>
+									<p>latest info section.</p>
+									<p>latest info section.</p>
+									<p>latest info section.</p>
+									<p>latest info section.</p>
+									<br>
+									<a href="#" class="button">Read More</a>
+								</div>
+								<div class="clear"> </div>
+			</div>
+	     </div>
+	</div>
+<?php include'inc/footer.php'; ?>
