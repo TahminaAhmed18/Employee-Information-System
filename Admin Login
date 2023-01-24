@@ -1,0 +1,140 @@
+<?php
+	include 'Database.php';
+
+class Admin_login{
+
+	private $db;
+
+		public function __construct(){
+			$this->db = new Database;
+		}
+	
+	public function login_check($data){
+
+		$username = $data['username'];
+		$pass     = $data['pass'];
+
+		$sql = "SELECT * FROM admin WHERE username='$username' And password ='$pass'";
+		$admin_login_sql = $this->db->select($sql);
+		return $admin_login_sql;
+	}
+
+	public function login_tcheck($tdata){
+
+		$email = $tdata['email'];
+		$pass  = $tdata['pass'];
+
+		$tsql = "SELECT * FROM teacher WHERE email='$email' And pass ='$pass'";
+		$t_login_sql = $this->db->select($tsql);
+		return $t_login_sql;
+	}
+
+	public function fet_request(){
+		$sql = "SELECT * FROM reserve";
+		$request = $this->db->select($sql);
+		return $request;
+
+	}
+
+	public function del_request($r_id){
+		$id = $r_id['id'];
+		$sql = "DELETE FROM `reserve` WHERE `reserve`.`id` = '$id'";
+		$del_req = $this->db->delete($sql);
+		if ($del_req) {
+			return "Request Deleted succesfully";
+		}
+	}
+
+	public function add_teacher($teacher){
+		
+		$name = $teacher['name'];
+		$email = $teacher['email'];
+		$pass = $teacher['pass'];
+		$doj = $teacher['doj'];
+		$dept = $teacher['dept'];
+		// $avail = $teacher['avail'];
+		// $offday = $teacher['offday'];
+		// $pen = $teacher['pen'];
+		// $pen_date = $teacher['pen_date'];
+		// $daster = $teacher['daster'];
+		// $daster_date = $teacher['daster_date'];
+		// $laptop = $teacher['laptop'];
+		// $laptop_date = $teacher['laptop_date'];
+		 $photo = $_FILES['photo']['name'];
+		$photo_tmp_name = $_FILES['photo']['tmp_name'];
+
+		 move_uploaded_file($photo_tmp_name, "photo/$photo");
+
+		$sql1="INSERT INTO teacher(name,email,pass,doj,dept,photo) VALUES('$name','$email','$pass','$doj','$dept','$photo')";
+
+		$email_sql = "SELECT * FROM teacher WHERE email='$email'";
+		$email_check = $this->db->select($email_sql);
+
+		if ($email_check) {
+			return "<h1 align='center' style='color:red'>Email Already exit.</h1>";
+			exit;
+		}else{
+	
+		$teacher_add_query = $this->db->insert($sql1);
+		if ($teacher_add_query) {
+			return "<h1 align='center' style='color:green'>Teacher Added succesfully.</h1>";
+		}else{
+			return "not add.";
+		}
+	}
+	}
+
+	public function add_staff($staff){
+		$name = $staff['name'];
+		$mobile = $staff['mobile'];
+		$doj = $staff['doj'];
+		$dept = $staff['dept'];
+		$dej = $staff['dej'];
+
+		$sql2 = "INSERT INTO `staff` (`name`, `doj`, `mob`, `dept`, `dej`) VALUES ('$name', '$doj', '$mobile', '$dept', '$dej')";
+
+		$staff_add_query = $this->db->insert($sql2);
+		if ($staff_add_query) {
+			return "<h1 align='center' style='color:green'>staff Added succesfully.</h1>";
+		}else{
+			return "not add.";
+		}
+	}
+
+	public function teacher_search($data){
+			$keyword = $data['keyword'];
+
+			$sql = "SELECT * FROM teacher WHERE email='$keyword'";
+			$search_r = $this->db->select($sql);
+			return $search_r;
+	}
+
+	public function update_teacher($u_data){
+		$id = $u_data['id'];
+		$avail = $u_data['avail'];
+		$offday = $u_data['offday'];
+		$pen = $u_data['pen'];
+		$pen_date = $u_data['pen_date'];
+		$daster = $u_data['daster'];
+		$daster_date = $u_data['daster_date'];
+		$laptop = $u_data['laptop'];
+		$laptop_date = $u_data['laptop_date'];
+
+		$sql = "UPDATE `teacher` SET `avail` = '$avail', `offd` = '$offday', `pen` = '$pen', `daster` = '$daster', `laptop` = '$laptop', `pen_date` = '$pen_date', `daster_date` = '$daster_date', `laptop_date` = '$laptop_date' WHERE `teacher`.`id` ='$id'";
+
+		$update = $this->db->update($sql);
+		if ($update) {
+			return "<script>alert('Your Information Has Been Updated.');</script>";
+		}
+	}
+
+	public function gettbyid($id){
+		$sql3 ="SELECT * FROM teacher WHERE id='$id'";
+		$tquery = $this->db->select($sql3);
+
+		return $sql3;
+	}
+	
+}
+
+?>
