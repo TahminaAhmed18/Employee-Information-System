@@ -1,0 +1,52 @@
+<?php include('inc/header.php'); ?>
+<?php include('campusinfocheck.php');
+$user = new campusinfocheck;
+ ?>
+
+ <?php $id = $_REQUEST['id'];
+  $result =  $user->getteacherinfobyid($id);
+ $fet = mysqli_fetch_array($result);
+ // var_dump($fet);
+ ?>
+<!-- content start here -->
+<div class="container" style="margin-top: 5%;">
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <h3 style="text-align: center;">Below are Teachers Details</h3>
+    </div>
+    <div class="panel-body">
+
+      <div style="width: 100%; margin: 0 auto;">
+        <div class="table-responsive">
+        <table class="table table-hover">
+          <tr>
+            <td><h3>Name</h3></td>
+            <td><h3><?php echo $fet['name'];?></h3></td>
+          </tr>
+          <tr>
+            <td><h3>email</h3></td>
+            <td><h3><?php echo $fet['email'];?></h3></td>
+          </tr>
+          <tr>
+            <td><h3>Department</h3></td>
+            <td><h3><?php echo $fet['dept'];?></h3></td>
+          </tr>
+          <tr>
+            <td><h3>Date Of Join</h3></td>
+            <td><h3><?php echo $fet['doj'];?></h3></td>
+          </tr>
+          
+
+          
+        </table>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<?php include'inc/footer.php'; ?>
