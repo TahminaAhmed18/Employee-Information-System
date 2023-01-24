@@ -1,0 +1,62 @@
+<?php include('inc/header.php'); ?>
+<?php include('campusinfocheck.php'); ?>
+
+<?php
+  $campus = new campusinfocheck;
+
+?>
+<?php
+          if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['staff'])) {
+            $staff_info = $campus->getstaffinfo($_POST);
+            //var_dump($_POST);
+?>
+<!-- content start here -->
+<div class="container" style="margin-top: 5%;">
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <h2 style="text-align: center;">Below are <?php echo $_POST['dept']; ?> Staff Details</h2>
+    </div>
+    <div class="panel-body">
+
+      <div style="width: 100%; margin: 0 auto;">
+        <div class="table-responsive">
+        <table class="table table-hover">
+          <tr>
+           <td><h4>SL.</h4></td>
+            <td><h4>Name</h4></td>
+            <td><h4>phone</h4></td>
+            <td><h4>Dept.</h4></td>
+            <td><h4>Date Of Join</h4></td>
+            <td><h4>Designition</h4></td>
+          </tr>
+          <?php
+        $i=1;
+        if($staff_info){
+          while($fet = mysqli_fetch_array($staff_info)){
+         
+       ?>
+      <tr height="30" >
+        
+        <td><?php echo $i;?></td>
+        <td><?php echo $fet['name'];?></td>
+        <td><?php echo $fet['mob'];?></td>
+        <td><?php echo $fet['dept'];?></td>
+        <td><?php echo $fet['doj'];?></td>
+        <td><?php echo $fet['dej'];?></td>
+
+          <?php $i++; }
+
+        }
+        }?>
+        </table>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<?php include'inc/footer.php'; ?>
